@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int n;
+	cin >> n;
+
+	int ex[100000] = { 0 };
+	int m = 0;
+	for (int i = 0; i < n; i++)
+	{
+		int k;
+		cin >> k;
+		ex[k]++;
+		if (m < k)
+			m = k;
+	}
+	for (int i = m; i >= 0; i--)
+		ex[i] += ex[i + 1];
+	for (int i = m; i >= 0; i--) {
+		if (ex[i + 1] >= i) { 
+			cout << i;
+			break;
+		}
+	}
+
+	return 0;
+}
