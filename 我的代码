@@ -1,0 +1,28 @@
+int main() {
+	int n;
+	cin >> n;
+
+	int ex[100000] = { 0 };
+	int m = 0;
+	for (int i = 0; i < n; i++)
+	{
+		int k;
+		cin >> k;
+		ex[k]++;
+		if (m < k)
+			m = k;
+	}
+	for (int i = m; i > 0; i--)
+	{
+		int g = 0;
+		for (int j = i; j <= m; j++)
+			g += ex[j];
+		if (g >= i)
+		{
+			cout << i;
+			break;
+		}
+	}
+
+	return 0;
+}
